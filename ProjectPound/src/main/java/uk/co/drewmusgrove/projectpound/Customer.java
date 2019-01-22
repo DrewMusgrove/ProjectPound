@@ -90,6 +90,7 @@ public class Customer {
     
     public String createCustomer(String name, String age, String accountNo, String balance)      
     {
+        int id = 1; 
         try 
         {
             Class.forName("org.sqlite.JDBC");
@@ -98,14 +99,13 @@ public class Customer {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT MAX(ID) AS [ID] FROM CUSTOMERS;" );
-            int id = 1; 
-            while ( rs.next() ) 
-            {
-              id = rs.getInt("ID");
-              id = id + 1;
+            try (ResultSet rs = stmt.executeQuery( "SELECT MAX(ID) AS [ID] FROM CUSTOMERS;" )) {
+                while ( rs.next() )
+                {
+                    id = rs.getInt("ID");
+                    id = id + 1;
+                }
             }
-            rs.close();
             System.out.println( "New ID = " + id); 
             String sql = "INSERT INTO CUSTOMERS (ID,NAME,AGE,ACCOUNTNO,BALANCE) " +
                         "VALUES (" + id + ", '"+ name +"', " + age + ", '" + accountNo + "', " + balance + " );"; 
@@ -121,7 +121,7 @@ public class Customer {
             System.exit(0);
         }
         System.out.println("Records created successfully");
-        return "Records created successfully - " + name;
+        return "Records created successfully - " + name + " (" + id + ")";
     }
     
     public String[] selectCustomer(String customerID) 

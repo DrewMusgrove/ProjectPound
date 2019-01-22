@@ -4,13 +4,18 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="363.0" prefWidth="511.5" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="uk.co.drewmusgrove.projectpound.FXMLController">
   <children>
     <Button fx:id="button" layoutX="14.0" layoutY="135.0" onAction="#handleButtonAction" text="Search" />
-    <Label fx:id="label" layoutX="92.0" layoutY="135.0" minHeight="16.0" minWidth="69.0" prefWidth="93.0" />
+    <Label fx:id="label" layoutX="262.0" layoutY="167.0" minHeight="16.0" minWidth="69.0" prefWidth="237.5" textAlignment="CENTER" wrapText="true">
+      <effect>
+        <Glow level="0.5641509433962264" />
+      </effect>
+    </Label>
     <TextField fx:id="tf_customerID" layoutX="95.0" layoutY="14.0" prefWidth="93.0" />
     <Label layoutX="14.0" layoutY="17.0" text="Customer ID" />
     <Label layoutX="14.0" layoutY="74.0" text="Account Number:" />
@@ -19,12 +24,12 @@
     <Label fx:id="lb_balance" layoutX="132.0" layoutY="103.0" text="£0.00" />
     <Label id="lb_name" layoutX="14.0" layoutY="51.0" text="Name" />
     <Label fx:id="lb_name" layoutX="132.0" layoutY="48.0" text="Unknown" />
-    <Button id="button" fx:id="buttonDB" layoutX="401.0" layoutY="156.0" onAction="#handleAddCustomerAction" text="Add Customer" />
+    <Button id="button" fx:id="buttonDB" layoutX="401.0" layoutY="135.0" onAction="#handleAddCustomerAction" text="Add Customer" />
     <Line endX="410.0" endY="0.0" layoutX="101.0" layoutY="192.0" startX="-100.0" />
     <Line endX="-60.0" endY="-76.0" layoutX="310.0" layoutY="77.0" startX="-60.0" startY="288.0" />
-    <TextField id="tf_updateName" fx:id="tf_updateName" layoutX="380.0" layoutY="25.0" prefWidth="93.0" />
-    <TextField id="tf_updateAccountNo" fx:id="tf_updateAccountNo" layoutX="380.0" layoutY="60.0" prefWidth="93.0" />
-    <TextField id="tf_updateBalance" fx:id="tf_updateBalance" layoutX="380.0" layoutY="94.0" prefWidth="93.0" />
+    <TextField fx:id="tf_updateName" layoutX="380.0" layoutY="25.0" prefWidth="93.0" />
+    <TextField fx:id="tf_updateAccountNo" layoutX="380.0" layoutY="60.0" prefWidth="93.0" />
+    <TextField fx:id="tf_updateBalance" layoutX="380.0" layoutY="94.0" prefWidth="93.0" />
     <Label id="lb_name" layoutX="262.0" layoutY="25.0" prefHeight="22.0" text="Name" />
     <Label layoutX="262.0" layoutY="64.0" text="Account Number:" />
     <Label layoutX="262.0" layoutY="94.0" text="Balance:" />

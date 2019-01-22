@@ -28,6 +28,12 @@ public class FXMLController implements Initializable {
     private TextField tf_customerID;
     @FXML
     private Button buttonDB;
+    @FXML
+    private TextField tf_updateName;
+    @FXML
+    private TextField tf_updateAccountNo;
+    @FXML
+    private TextField tf_updateBalance;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -42,20 +48,25 @@ public class FXMLController implements Initializable {
             // Updated account number label
             lb_accountNumber.setText(data[3]);
             // Updated account number label
-            lb_balance.setText(data[2]);
-
-        
+            lb_balance.setText(data[2]); 
     }
     
     @FXML
-    private void handleButton2Action(ActionEvent event) {
-            
-
-        
+    private void handleAddCustomerAction(ActionEvent event) 
+    {
+        Customer customer = new Customer();
+        String balance = tf_updateBalance.getText();
+        String name = tf_updateName.getText();
+        String age = "21";
+        String accountNo = tf_updateAccountNo.getText();
+      
+        label.setText(customer.createCustomer(name, age, accountNo, balance));
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    
 }

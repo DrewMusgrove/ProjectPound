@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -31,6 +32,10 @@ public class LoginController implements Initializable {
     private PasswordField pw_password;
     @FXML
     private Button bt_login;
+    @FXML
+    private Label lb_fail;
+    
+ 
 
     /**
      * Initializes the controller class.
@@ -41,22 +46,33 @@ public class LoginController implements Initializable {
     }    
 
     @FXML
-    private void handleLoginAction(ActionEvent event) {
-        try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Scene.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root1)); 
-        stage.setTitle("JavaFX and Maven");
-        stage.show();
-        
-        //Gets current stage
-        Stage currentStage = (Stage) bt_login.getScene().getWindow();
-        // do what you have to do
-        currentStage.close();
-    } catch(Exception e) {
-        e.printStackTrace();
-    }
+    private void handleLoginAction(ActionEvent event) 
+    {
+        if (tf_username.getText().equals("Admin") && pw_password.getText().equals("Admin"))
+        {    
+            try 
+            {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Scene.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1)); 
+                stage.setTitle("JavaFX and Maven");
+                stage.show();
+
+                //Gets current stage
+                Stage currentStage = (Stage) bt_login.getScene().getWindow();
+                // do what you have to do
+                currentStage.close();
+            } 
+            catch(Exception e) 
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            lb_fail.setText("LOGIN FAIL");
+        }
     }
     
 }

@@ -19,5 +19,10 @@
       </font>
     </Label>
     <Button fx:id="bt_login" layoutX="228.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleLoginAction" text="Sign in" />
+    <Label fx:id="lb_fail" layoutX="233.0" layoutY="292.0" text="" textFill="RED">
+      <font>
+        <Font size="20.0" />
+      </font>
+    </Label>
   </children>
 </AnchorPane>
